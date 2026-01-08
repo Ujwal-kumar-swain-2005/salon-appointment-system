@@ -1,4 +1,4 @@
-package com.example.booking_service.payload;
+package com.example.payment_service.payload;
 
 public class UserDto {
     private Long id;

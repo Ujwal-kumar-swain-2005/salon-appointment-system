@@ -1,6 +1,4 @@
-package com.example.booking_service.payload;
-
-import com.example.booking_service.domain.BookingStatus;
+package com.example.payment_service.payload;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -12,20 +10,7 @@ public class BookingDto {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private Set<Long> offeringIds;
-    private BookingStatus status = BookingStatus.PENDING;
-
-    public BookingDto() {
-    }
-
-    public BookingDto(Long id, Long salonId, Long customerId, LocalDateTime startTime, LocalDateTime endTime, Set<Long> offeringIds, BookingStatus status) {
-        this.id = id;
-        this.salonId = salonId;
-        this.customerId = customerId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.offeringIds = offeringIds;
-        this.status = status;
-    }
+    private int totalPrice;
 
     public Long getId() {
         return id;
@@ -75,11 +60,11 @@ public class BookingDto {
         this.offeringIds = offeringIds;
     }
 
-    public BookingStatus getStatus() {
-        return status;
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setStatus(BookingStatus status) {
-        this.status = status;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
