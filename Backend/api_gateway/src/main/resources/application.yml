@@ -1,0 +1,69 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: api_gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+
+      routes:
+
+        # ===============================
+        # USER SERVICE
+        # ===============================
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**,/auth/**,/api/admin/users/**,/users/**
+
+        # ===============================
+        # SALON SERVICE
+        # ===============================
+        - id: salon-service
+          uri: lb://SALON-SERVICE
+          predicates:
+            - Path=/salons/**,/api/salons/**,/api/admin/salons/**
+
+        # ===============================
+        # BOOKING SERVICE
+        # ===============================
+        - id: booking-service
+          uri: lb://BOOKING-SERVICE
+          predicates:
+            - Path=/api/booking/**
+
+        # ===============================
+        # CATEGORY SERVICE
+        # ===============================
+        - id: category-service
+          uri: lb://CATEGORY-SERVICE
+          predicates:
+            - Path=/api/categories/**
+
+        # ===============================
+        # OFFERING SERVICE
+        # ===============================
+        - id: offering-service
+          uri: lb://OFFERING-SERVICE
+          predicates:
+            - Path=/api/service-offering/**
+
+# ===============================
+# EUREKA CLIENT
+# ===============================
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
+
+# ===============================
+# (OPTIONAL) LOGGING FOR DEBUG
+# ===============================
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
