@@ -2,10 +2,8 @@ package com.example.user_service.modal;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.user_service.payload.UserRole;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,9 +27,8 @@ public class User {
 
     @NotBlank(message = "Password is required")
     private String password;
-
-    @NotBlank(message = "Role is required")
-    private String role;
+    @Column(nullable = false)
+    private UserRole role;
 
     @CreationTimestamp
     private LocalDateTime createAt;
@@ -43,7 +40,7 @@ public class User {
         super();
     }
 
-    public User(Long id, String fullName, String email, String phone, String role, LocalDateTime createAt,
+    public User(Long id, String fullName, String email, String phone, UserRole role, LocalDateTime createAt,
                 LocalDateTime updateAt) {
         super();
         this.id = id;
@@ -53,6 +50,22 @@ public class User {
         this.role = role;
         this.createAt = createAt;
         this.updateAt = updateAt;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -87,11 +100,11 @@ public class User {
         this.phone = phone;
     }
 
-    public String getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 
