@@ -2,7 +2,10 @@ package com.example.user_service.controller;
 
 import com.example.user_service.modal.User;
 import com.example.user_service.repository.UserRepository;
+import com.example.user_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +16,8 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
-
+    @Autowired
+    private UserService userService;
     @PostMapping("/api/users")
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
@@ -57,5 +61,9 @@ public class UserController {
 
         userRepository.deleteById(id);
         return "User deleted";
+    }
+    @GetMapping("/profile")
+    public ResponseEntity<User> getUserInfo(@RequestHeader("Authorization") String token) throws Exception {
+        return new ResponseEntity<>(userService.getUserInfo(token), HttpStatus.OK);
     }
 }

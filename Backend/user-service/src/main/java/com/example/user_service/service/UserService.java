@@ -10,4 +10,6 @@ public interface UserService {
     List<User> getAllUsers();
     void deleteUser(Long id) throws  UserException;
     User updateUser(Long id, User userDetails) throws  UserException;
+
+    User getUserInfo(String token) throws Exception;
 }
