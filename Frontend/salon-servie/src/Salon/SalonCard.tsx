@@ -1,0 +1,35 @@
+import React from "react";
+import { StarIcon, MapPinIcon } from "@heroicons/react/24/solid";
+
+const SalonCard: React.FC = () => {
+  return (
+    <div className="w-56 md:w-80 rounded-md bg-slate-100 shadow hover:shadow-lg transition">
+      <img
+        className="w-full h-[15rem] object-cover rounded-t-md"
+        src="https://i.pinimg.com/1200x/e0/3e/70/e03e70641a7a7a9ac4ae2530252da2ff.jpg"
+        alt="Salon Hair"
+      />
+
+      <div className="p-5 space-y-2">
+        <h1 className="font-semibold text-lg">Glamour Hair Studio</h1>
+        <p className="text-sm text-gray-600 line-clamp-2">
+          Professional hair styling, coloring, and beauty services with modern techniques.
+        </p>
+        <div className="flex items-center gap-1">
+          <StarIcon className="h-4 w-4 text-yellow-400" />
+          <StarIcon className="h-4 w-4 text-yellow-400" />
+          <StarIcon className="h-4 w-4 text-yellow-400" />
+          <StarIcon className="h-4 w-4 text-yellow-400" />
+          <StarIcon className="h-4 w-4 text-gray-300" />
+          <span className="text-sm text-gray-600 ml-1">(4.0)</span>
+        </div>
+        <div className="flex items-center gap-1 text-gray-600 text-sm">
+          <MapPinIcon className="h-4 w-4" />
+          <span>Ho Chi Minh City</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SalonCard;

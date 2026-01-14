@@ -1,6 +1,7 @@
 import Banner from './Banner'
 import HomeServiceCard from './HomeServiceCard'
 import { services } from '../../assets/Data/services'
+import SalonList from '../../Salon/SalonList'
 const Home = () => {
   return (
     <div className="space-y-20">
@@ -37,7 +38,10 @@ const Home = () => {
           Featured Salons
         </h2>
       </section>
-
+          <section>
+                <h2 className="text-3xl font-semibold text-center mb-6">Featured Salons</h2>    
+                <SalonList/>
+            </section>
     </div>
   )
 }
