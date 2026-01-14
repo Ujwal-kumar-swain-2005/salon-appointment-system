@@ -50,8 +50,6 @@ const SelectedServiceList: React.FC = () => {
               <span>{service.duration}</span>
             </div>
           </div>
-
-          {/* Price + remove */}
           <div className="flex items-center gap-2">
             <span className="font-semibold text-green-600 text-sm">
               ${service.price}
