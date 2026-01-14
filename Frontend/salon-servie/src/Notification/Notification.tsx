@@ -5,7 +5,7 @@ const Notification: React.FC = () => {
   return (
     <div className="px-5 md:flex flex-col items-center mt-10 min-h-screen">
       <div>
-        <h1 className="text-3xl font-bold py-5">
+        <h1 className="text-3xl font-bold py-5 text-black">
           Notifications
         </h1>
       </div>

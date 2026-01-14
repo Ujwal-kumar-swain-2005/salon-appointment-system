@@ -1,18 +1,9 @@
 import React from "react";
-import videoSrc from "../../assets/videos/cottonbro-studio.mp4";
 
 const Banner: React.FC = () => {
   return (
     <div className="w-full relative h-[80vh]">
-      <video
-        className="w-full h-full object-cover"
-        src={videoSrc}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
-
+      
       <div className="absolute top-1/2 left-1/2 transform 
                       -translate-x-1/2 -translate-y-1/2 
                       text-center text-white">
