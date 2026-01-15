@@ -11,10 +11,9 @@ public class SalonDto {
     private String address;
     private String phoneNumber;
     private String city;
-    private Long ownerId;
     private LocalDateTime openingTime;
     private LocalDateTime closingTime;
-
+    private Long ownerId;
     public Long getId() {
         return id;
     }
