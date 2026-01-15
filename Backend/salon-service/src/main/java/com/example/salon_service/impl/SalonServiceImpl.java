@@ -33,7 +33,7 @@ public class SalonServiceImpl implements SalonService {
 
         return salonRepository.save(salon);
     }
-
+    @SuppressWarnings("null")
     @Override
     public Salon updateSalon(SalonDto salonDto, UserDto userDto, Long salonId) throws Exception {
         var salon = salonRepository.findById(salonId).orElseThrow(() -> new Exception("Salon not found"));
