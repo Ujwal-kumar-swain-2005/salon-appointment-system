@@ -54,11 +54,7 @@ public class KeyCloakService {
 
             if (response.getStatusCode().is2xxSuccessful()) {
                 System.out.println("User created successfully in Keycloak");
-
-                // Get created user
                 KeyCloakUserDto cloakUserDto = getUserByUsername(signupDto.getUsername(), accessToken);
-
-                // Get role and assign
                 KeyCloakRole role = getRoleByName(CLIENT_ID_ADMIN, signupDto.getRole().name(), accessToken);
                 assignRoleToUser(cloakUserDto.getId(), CLIENT_ID_ADMIN, List.of(role), accessToken);
 
@@ -68,8 +64,6 @@ public class KeyCloakService {
             }
         } catch (HttpClientErrorException e) {
             System.err.println("HTTP Error: " + e.getStatusCode() + " - " + e.getResponseBodyAsString());
-
-            // Handle specific error cases
             if (e.getStatusCode() == HttpStatus.CONFLICT) {
                 throw new Exception("User already exists with username: " + signupDto.getUsername());
             } else if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
@@ -172,29 +166,21 @@ public class KeyCloakService {
         }
     }
     public KeyCloakUserDto fetchUserProfile(String accessToken) throws Exception {
-        String TOKEN_URL = KEYCLOAK_URL + "/realms/master/protocol/openid-connect/userinfo";
-
+        String url = KEYCLOAK_URL + "/realms/master/protocol/openid-connect/userinfo";
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", accessToken);
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(accessToken);
 
         HttpEntity<Void> request = new HttpEntity<>(headers);
 
         try {
-            var response = restTemplate.exchange(
-                    TOKEN_URL,
-                    HttpMethod.GET,
-                    request,
-                    KeyCloakUserDto.class);
-
+            ResponseEntity<KeyCloakUserDto> response =
+                    restTemplate.exchange(url, HttpMethod.GET, request, KeyCloakUserDto.class);
             return response.getBody();
-
         } catch (HttpStatusCodeException ex) {
-            System.err.println("Keycloak error: " + ex.getResponseBodyAsString());
-            throw new Exception("Failed to get user info: " + ex.getStatusCode(), ex);
 
-        } catch (Exception ex) {
-            throw new Exception("Unexpected error while fetching Keycloak user info", ex);
+            System.err.println("Keycloak Error Body: " + ex.getResponseBodyAsString());
+            throw new Exception("Failed to get user info: " + ex.getStatusCode(), ex);
         }
     }
+
 }

@@ -13,6 +13,6 @@ public interface UserFeignClient {
     @GetMapping("/api/users/{userId}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("userId") Long id) throws Exception;
 
-    @GetMapping("/api/users/profile")
+    @GetMapping("/profile")
     public ResponseEntity<UserDto> getUserInfo(@RequestHeader("Authorization") String token) throws Exception;
 }

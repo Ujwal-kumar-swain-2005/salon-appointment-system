@@ -64,6 +64,7 @@ public class UserController {
     }
     @GetMapping("/profile")
     public ResponseEntity<User> getUserInfo(@RequestHeader("Authorization") String token) throws Exception {
+
         return new ResponseEntity<>(userService.getUserInfo(token), HttpStatus.OK);
     }
 }

@@ -72,6 +72,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserInfo(String token) throws Exception {
         KeyCloakUserDto cloakUserDto = cloakService.fetchUserProfile(token);
+        System.out.println(cloakUserDto);
         return userRepository.findByEmail(cloakUserDto.getEmail());
     }
 }
