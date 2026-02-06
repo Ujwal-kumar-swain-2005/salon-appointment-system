@@ -1,4 +1,4 @@
-package com.example.offering_service.payload;
+package com.example.Notification_Service.payload;
 
 public class OfferingDto {
     private Long id;
@@ -6,23 +6,9 @@ public class OfferingDto {
     private String description;
     private int price;
     private int duration;
-    ;
-    private String image;
     private Long salonId;
     private Long categoryId;
-    public OfferingDto() {
-    }
-
-    public OfferingDto(Long id, String name, String description, int price, int duration, Long salonId, Long categoryId, String image) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.duration = duration;
-        this.salonId = salonId;
-        this.categoryId = categoryId;
-        this.image = image;
-    }
+    private String image;
 
     public Long getId() {
         return id;

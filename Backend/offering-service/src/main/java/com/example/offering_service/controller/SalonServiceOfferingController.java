@@ -53,10 +53,6 @@ public class SalonServiceOfferingController {
         return ResponseEntity.ok(offering);
     }
 
-
-
-
-
     @PostMapping("/{id}")
     public ResponseEntity<Offering> updateServiceOffering(@PathVariable Long id, @RequestBody Offering offering) throws Exception {
         return ResponseEntity.ok(offeringService.updateServiceOffering(id, offering));

@@ -95,7 +95,6 @@ services:
 
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8070/eureka/
 
-      # 🔐 KEYCLOAK (JWT VALIDATION)
       SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI: http://keycloak:8080/realms/salon-realm
 
     depends_on:

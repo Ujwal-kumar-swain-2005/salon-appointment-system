@@ -29,4 +29,6 @@ public class CategoryController {
         Category category = categoryService.getCategoryById(categoryId);
         return ResponseEntity.ok(category);
     }
+
+
 }

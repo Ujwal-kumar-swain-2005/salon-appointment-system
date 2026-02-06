@@ -45,7 +45,7 @@ public class BookingServiceImpl implements BookingService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        throw new RuntimeException("Time slot not available");
     }
 
     private Boolean isTimeSlotAvailable(SalonDto salonDto, LocalDateTime startTime, LocalDateTime endTime)
@@ -119,7 +119,7 @@ public class BookingServiceImpl implements BookingService {
         int totalEarnings = bookings.stream().mapToInt(Booking::getTotalPrice).sum();
         int totalBookings = bookings.size();
         List<Booking> cancelledBookings = bookings.stream().filter(b -> b.getStatus() == BookingStatus.CANCELLED)
-                .collect(Collectors.toList());
+                .toList();
 
         Double totalRefunds = cancelledBookings.stream().mapToDouble(Booking::getTotalPrice).sum();
 

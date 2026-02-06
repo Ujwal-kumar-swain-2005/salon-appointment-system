@@ -56,4 +56,10 @@ public class SalonCategoryController {
         return ResponseEntity.ok("Category deleted successfully");
 
     }
+    @GetMapping("/salon/{salonId}/category/{id}")
+    public ResponseEntity<Category> getCategoriesByIdAndSalon(@PathVariable Long salonId  , @PathVariable Long id ) throws Exception{
+        Category catergory=categoryService.findByIdAndSalonId(id,salonId);
+        return ResponseEntity.ok(catergory);
+
+    }
 }

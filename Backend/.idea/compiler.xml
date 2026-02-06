@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="category-service" />
         <module name="payment-service" />
+        <module name="Notification_Service" />
         <module name="booking-service" />
         <module name="salon-service" />
         <module name="offering-service" />
@@ -19,6 +20,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Notification_Service" options="-parameters" />
       <module name="api_gateway" options="-parameters" />
       <module name="booking-service" options="-parameters" />
       <module name="category-service" options="-parameters" />
