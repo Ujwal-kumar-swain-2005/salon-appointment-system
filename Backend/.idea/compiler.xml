@@ -9,6 +9,7 @@
         <module name="category-service" />
         <module name="payment-service" />
         <module name="Notification_Service" />
+        <module name="review-service" />
         <module name="booking-service" />
         <module name="salon-service" />
         <module name="offering-service" />
@@ -27,6 +28,7 @@
       <module name="eureka-server" options="-parameters" />
       <module name="offering-service" options="-parameters" />
       <module name="payment-service" options="-parameters" />
+      <module name="review-service" options="-parameters" />
       <module name="salon-service" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
