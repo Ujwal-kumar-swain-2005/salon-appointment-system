@@ -8,20 +8,18 @@ const SalonDashboard: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      
+     
       <Navbar onToggle={() => setOpen(!open)} />
 
       <div className="flex">
-        
+   
         <SalonDrawerList open={open} onClose={() => setOpen(false)} />
 
-        
-        <main className="flex-1 p-6 lg:ml-64">
-          <Outlet /> 
+        <main className="flex-1 p-6 mt-16 lg:ml-64">
+          <Outlet />
         </main>
       </div>
     </div>
   )
 }
-
-export default SalonDashboard
+export default SalonDashboard;

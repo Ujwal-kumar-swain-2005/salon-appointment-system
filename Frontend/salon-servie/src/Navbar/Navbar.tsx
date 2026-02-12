@@ -27,7 +27,8 @@ const Navbar: React.FC<NavbarProps> = ({ onToggle }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white shadow-sm lg:ml-64">
+
       <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
         <div className="flex items-center gap-10">
           <div className="md:hidden cursor-pointer" onClick={onToggle}>
